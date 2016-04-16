@@ -1,0 +1,74 @@
+﻿@model PokerAppMVC.Models.Result
+
+@{
+    ViewBag.Title = "Results";
+}
+
+<h2>Results</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CPR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PN)
+        </dd>
+    </dl>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Table</dt>
+        <dd>
+            <table class="table-bordered">
+                @{List<string> rows = new List<string>() { "A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2" };}
+                <thead>
+                    <tr>
+                        <td></td>
+                        @for (int row = 0; row < 13; row++)
+                        {
+                            <td> @rows[row]</td>
+                        }
+                    </tr>
+                </thead>
+
+                @for (int row = 0; row < 13; row++)
+                {
+                    <tr>
+                        <td> @rows[row]</td>
+                        @for (int col = 0; col < 13; col++)
+                        {
+                            if (Model.Table[row, col])
+                            {
+                                <td style="background-color:#73F55C">X</td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                        }
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back", "Index", "Inputs")
+</p>

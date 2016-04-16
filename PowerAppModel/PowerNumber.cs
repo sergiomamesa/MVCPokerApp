@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace PokerAppMVC.Models
+{
+    public class PowerNumber
+    {
+        private static PowerNumber Plus = new PowerNumber() { IsPlus = true };
+        private static PowerNumber Negative = new PowerNumber() { IsNegative = true };
+
+        public bool IsPlus { get; private set; }
+        public bool IsNegative { get; private set; }
+
+        public int Value { get; private set; }
+
+        public static PowerNumber GetValue(int value)
+        {
+            if (value == 100)
+                return PowerNumber.Plus;
+
+            if (value == 0)
+                return PowerNumber.Negative;
+
+            return new PowerNumber() { Value = value };
+        }
+    }
+}
