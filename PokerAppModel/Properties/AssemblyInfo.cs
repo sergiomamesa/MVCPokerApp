@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PowerAppModel")]
+[assembly: AssemblyTitle("PokerAppModel")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PowerAppModel")]
+[assembly: AssemblyProduct("PokerAppModel")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("328e3b65-6365-4f24-be20-a1e45286e8ea")]
+[assembly: Guid("9bc8ce57-5b6c-4a5a-8ce3-8fb4521e8a16")]
 
 // Version information for an assembly consists of the following four values:
 //

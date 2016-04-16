@@ -129,9 +129,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PowerAppModel\PowerAppModel.csproj">
-      <Project>{cfdfe2db-6d94-4dff-8ecc-09140ae095b4}</Project>
-      <Name>PowerAppModel</Name>
+    <ProjectReference Include="..\PokerAppModel\PokerAppModel.csproj">
+      <Project>{07bd7e07-c133-444b-b0a3-7ec10a9514f7}</Project>
+      <Name>PokerAppModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
