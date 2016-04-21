@@ -7,19 +7,14 @@ namespace PokerAppMVC.Models
 {
     public class Input
     {
-        
         public int SmallBlind { get; set; }
         
-        
         public int BigBlind { get; set; }
-        
-        
+                
         public int? Ante { get; set; }
-
         
         public int Stack { get; set; }
 
-        
         public int Players { get; set; }
 
         public int Opponents { get; set; }

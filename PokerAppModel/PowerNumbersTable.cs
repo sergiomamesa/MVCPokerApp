@@ -7,7 +7,7 @@ namespace PokerAppMVC.Models
 {
     public class PowerNumbersTable
     {
-        public PowerNumber[,] Table = new PowerNumber[13, 13];
+        private PowerNumber[,] Table = new PowerNumber[13, 13];
 
         private int[] RowA = new int[13] { 100, 100, 100, 100, 100, 50, 37, 32, 28, 31, 27, 26, 24 };
         private int[] RowK = new int[13] { 100, 100, 100, 75, 66, 44, 17, 15, 14, 13, 11, 10, 9 };
@@ -23,7 +23,7 @@ namespace PokerAppMVC.Models
         private int[] Row3 = new int[13] { 16, 8, 5, 3, 0, 0, 0, 0, 0, 0, 0, 33, 0 };
         private int[] Row2 = new int[13] { 15, 7, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 28 };
 
-        public PowerNumbersTable()
+        private PowerNumbersTable()
         {
             CreateRow(0, RowA);
             CreateRow(1, RowK);
@@ -46,6 +46,22 @@ namespace PokerAppMVC.Models
             {
                 Table[rowNumber, i] = PowerNumber.GetValue(rowData[i]);
             }
+        }
+
+        public static bool[,] CreateValidationTable(int powerNumber)
+        {
+            bool[,] table = new bool[13, 13];
+            var powerNumberTable = new PowerNumbersTable();
+            for (int row = 0; row < 13; row++)
+            {
+                for (int col = 0; col < 13; col++)
+                {
+                    var currentValue = powerNumberTable.Table[row, col];
+                    table[row, col] = PowerNumber.GetIsValid(currentValue, powerNumber);
+                }
+            }
+
+            return table;
         }
     }
 }

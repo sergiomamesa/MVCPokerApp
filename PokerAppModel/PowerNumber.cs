@@ -25,5 +25,19 @@ namespace PokerAppMVC.Models
 
             return new PowerNumber() { Value = value };
         }
+
+        public static bool GetIsValid(PowerNumber currentValue, int weight)
+        {
+            if (currentValue.IsPlus)
+                return true;
+
+            if (currentValue.IsNegative)
+                return false;
+
+            if (currentValue.Value > weight)
+                return true;
+
+            return false;
+        }
     }
 }

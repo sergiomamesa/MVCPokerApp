@@ -34,10 +34,13 @@ namespace PokerAppMVC.Controllers
                 ModelState.AddModelError("Opponents", "Not a valid value");
 
             if (input.SmallBlind > input.BigBlind)
-                ModelState.AddModelError("BigBlind", "BigBlind must be greather than SmallBlind");
+                ModelState.AddModelError("BigBlind", "BigBlind must be bigger than SmallBlind");
 
             if (input.Ante.HasValue && input.Ante.Value > input.SmallBlind)
                 ModelState.AddModelError("Ante", "Ante must be lower than SmallBlind");
+
+            if (input.Opponents <= 0)
+                ModelState.AddModelError("Opponents", "Opponents must be bigger than Player");
 
             if (ModelState.IsValid == false)
                 return View("Index", input);

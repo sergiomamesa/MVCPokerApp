@@ -16,7 +16,7 @@ namespace PokerAppMVC.Models
 
         public Result()
         {
-
+            //Need for the view engine
         }
 
         public Result(int cpr, int csi, int pn)
@@ -25,30 +25,7 @@ namespace PokerAppMVC.Models
             CSI = csi;
             PN = pn;
 
-            Table = new bool[13, 13];
-            var powerNumberTable = new PowerNumbersTable();
-            for (int row = 0; row < 13; row++)
-            {
-                for (int col = 0; col < 13; col++)
-                {
-                    var currentValue = powerNumberTable.Table[row, col];
-                    Table[row, col] = GetIsValid(currentValue);
-                }
-            }
-        }
-
-        private bool GetIsValid(PowerNumber currentValue)
-        {
-            if (currentValue.IsPlus)
-                return true;
-
-            if (currentValue.IsPlus)
-                return false;
-
-            if (currentValue.Value > PN)
-                return true;
-
-            return false;
+            Table = PowerNumbersTable.CreateValidationTable(PN);
         }
     }
 }
