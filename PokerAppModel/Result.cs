@@ -12,7 +12,8 @@ namespace PokerAppMVC.Models
 
         public int PN { get; set; }
 
-        public bool[,] Table { get; set; }
+        public bool[,] TableValidated { get; set; }
+        public PowerNumber[,] TableWeights { get; set; }
 
         public Result()
         {
@@ -25,7 +26,8 @@ namespace PokerAppMVC.Models
             CSI = csi;
             PN = pn;
 
-            Table = PowerNumbersTable.CreateValidationTable(PN);
+            TableValidated = PowerNumbersTable.CreateValidationTable(PN);
+            TableWeights = PowerNumbersTable.CreateWeightTable();
         }
     }
 }

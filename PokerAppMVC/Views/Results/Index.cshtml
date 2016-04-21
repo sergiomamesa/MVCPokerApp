@@ -38,29 +38,23 @@
         <dd>
             <table class="table-bordered">
                 @{List<string> rows = new List<string>() { "A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2" };}
-                <thead>
-                    <tr>
-                        <td></td>
-                        @for (int row = 0; row < 13; row++)
-                        {
-                            <td> @rows[row]</td>
-                        }
-                    </tr>
-                </thead>
-
                 @for (int row = 0; row < 13; row++)
                 {
                     <tr>
-                        <td> @rows[row]</td>
+                        @*<td> @rows[row]</td>*@
                         @for (int col = 0; col < 13; col++)
-                        {
-                            if (Model.Table[row, col])
+                        {                                
+                            if (Model.TableValidated[row, col])
                             {
-                                <td style="background-color:#73F55C">X</td>
+                                <td style="background-color:#73F55C" title="@Model.TableWeights[row,col].ToString()">@rows[row]@rows[col]</td>
+                            }
+                            else if (Model.TableWeights[row,col].IsNegative)
+                            {
+                                <td style="background-color:#B94A48" title="@Model.TableWeights[row,col].ToString()">@rows[row]@rows[col]</td>
                             }
                             else
                             {
-                                <td></td>
+                                <td style="background-color:#CCC" title="@Model.TableWeights[row,col].ToString()">@rows[row]@rows[col]</td>
                             }
                         }
                     </tr>

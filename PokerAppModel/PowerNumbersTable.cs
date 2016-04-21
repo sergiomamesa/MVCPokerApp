@@ -48,6 +48,11 @@ namespace PokerAppMVC.Models
             }
         }
 
+        public static PowerNumber[,] CreateWeightTable()
+        {
+            return new PowerNumbersTable().Table;
+        }
+
         public static bool[,] CreateValidationTable(int powerNumber)
         {
             bool[,] table = new bool[13, 13];

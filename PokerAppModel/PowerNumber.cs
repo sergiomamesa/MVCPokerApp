@@ -12,7 +12,6 @@ namespace PokerAppMVC.Models
 
         public bool IsPlus { get; private set; }
         public bool IsNegative { get; private set; }
-
         public int Value { get; private set; }
 
         public static PowerNumber GetValue(int value)
@@ -38,6 +37,17 @@ namespace PokerAppMVC.Models
                 return true;
 
             return false;
+        }
+
+        public override string ToString()
+        {
+            if (this.IsPlus)
+                return "+";
+
+            if (this.IsNegative)
+                return "-";
+
+            return this.Value.ToString();
         }
     }
 }
