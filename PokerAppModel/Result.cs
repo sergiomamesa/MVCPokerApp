@@ -9,7 +9,6 @@ namespace PokerAppMVC.Models
     {
         public int CPR { get; set; }
         public int CSI { get; set; }
-
         public int PN { get; set; }
 
         public bool[,] TableValidated { get; set; }
